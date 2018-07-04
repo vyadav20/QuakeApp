@@ -1,0 +1,56 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.example.android.quakereport;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+public class EarthquakeActivity extends AppCompatActivity {
+
+    public static final String LOG_TAG = EarthquakeActivity.class.getName();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.earthquake_activity);
+
+        // Create a fake list of earthquake locations.
+        ArrayList<Earthquakejava> earthquakes = com.example.android.quakereport.QueryUtils.extractEarthquakes();
+
+       /* ArrayList<Earthquakejava> earthquakes = new ArrayList<>();
+        earthquakes.add(new Earthquakejava("9.9","San Francisco","6 march 2010"));
+        earthquakes.add(new Earthquakejava("3.9","London","4 feb 2009"));
+        earthquakes.add(new Earthquakejava("0.2","Tokyo","6 jan 1999"));
+        earthquakes.add(new Earthquakejava("3.4","Mexico City","23 march 2013"));
+        earthquakes.add(new Earthquakejava("2.0","Moscow","12 sep 2001"));
+        earthquakes.add(new Earthquakejava("1.1","Rio de Janeiro","18 aug 2007"));
+        earthquakes.add(new Earthquakejava("6.0","Paris","10 june 2003"));*/
+
+        // Find a reference to the {@link ListView} in the layout
+        ListView earthquakeListView = (ListView) findViewById(R.id.list);
+
+        // Create a new {@link ArrayAdapter} of earthquakes
+        EarthquakeAdapter adapter = new EarthquakeAdapter(this,earthquakes);
+
+        // Set the adapter on the {@link ListView}
+        // so the list can be populated in the user interface
+        earthquakeListView.setAdapter(adapter);
+    }
+}
