@@ -13,24 +13,24 @@ public class Earthquakejava {
     private String mdate;
     private long mTimeInMilliseconds;
 
-    public Earthquakejava(String mag, String place, String date, long timeInMilliseconds) {
-        mmag = mag;
-        mplace = place;
-        mdate=date;
-        mTimeInMilliseconds = timeInMilliseconds;
+    public Earthquakejava(String Mag, String Place, String Date, long TimeInMilliseconds) {
+        mmag = Mag;
+        mplace = Place;
+        mdate=Date;
+        mTimeInMilliseconds = TimeInMilliseconds;
     }
 
-    public String getmag() {
+    public String getMag() {
         return mmag;
     }
 
-    public String getplace() {
+    public String getPlace() {
         return mplace;
     }
 
     public String getdate(){return mdate;}
 
-    public long getmTimeInMilliseconds() {
+    public long getTimeInMilliseconds() {
         return mTimeInMilliseconds;
     }
 

@@ -19,8 +19,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import util.*;
 
 import java.util.ArrayList;
+
+import static util.QueryUtils.extractEarthquakes;
 
 public class EarthquakeActivity extends AppCompatActivity {
 
@@ -32,7 +35,7 @@ public class EarthquakeActivity extends AppCompatActivity {
         setContentView(R.layout.earthquake_activity);
 
         // Create a fake list of earthquake locations.
-        ArrayList<Earthquakejava> earthquakes = com.example.android.quakereport.QueryUtils.extractEarthquakes();
+        ArrayList<Earthquakejava> earthquakes = QueryUtils.extractEarthquakes();
 
        /* ArrayList<Earthquakejava> earthquakes = new ArrayList<>();
         earthquakes.add(new Earthquakejava("9.9","San Francisco","6 march 2010"));
